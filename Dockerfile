@@ -1,13 +1,20 @@
 FROM python:3.10.14-alpine3.20
 
+# Set Working Directory for Docker Container, Location Where All Subsequent Comamnds Will be Executed
 WORKDIR /usr/src/myproject
 
-COPY requirements.txt .
+# Install pipenv
+RUN pip install --no-cache-dir pipenv
 
-RUN PIP INSTALL --no-cache-dir -r requirements.txt
+# Copy and Install Dependencies
+COPY Pipfile Pipfile.lock ./
+RUN pipenv install --system --deploy --ignore-pipfile
 
-COPY . . 
+# Copy Project Code
+COPY ./src ./
 
-EXPOSE 5100
+# Expose Port 8000
+EXPOSE 8000
 
-CMD ["python3", "manage.py", "runserver"]
+# Run Backend Server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
