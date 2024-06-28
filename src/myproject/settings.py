@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     
     # My App folders
-    "api"
+    "api",
+    "test"
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# 'django.db.backends.postgresql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

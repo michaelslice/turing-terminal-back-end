@@ -19,8 +19,3 @@ class StockListPostRetrieveUpdateDelete(generics.RetrieveDestroyAPIView):
     serializer_class = StockListSerializer
     lookup_field= "pk" # Primary Key   
 
-
-@api_view(['GET'])
-def getData(request):
-    person = {'name': 'Joe', 'Age': 29}
-    return Response(person)
