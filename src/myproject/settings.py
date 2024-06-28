@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "webapp", # Allow Django App to View Code in "webapp"
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    
+    # My App folders
+    "api"
 ]
 
 MIDDLEWARE = [

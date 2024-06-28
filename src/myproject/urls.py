@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from webapp.views import *
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("webapp.urls")),
-    path("", ReactView.as_view(), name="anything") # Set the Local Host With Port 8000, to Be Endpoint for The React View Class
+
+ 
+    path("api/", include('api.urls')),
 ]
