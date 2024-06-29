@@ -40,9 +40,23 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     
-    # My App folders
+    # My Project folders
     "api",
-    "test"
+    "test",
+    "focus",
+    "holders",
+    "chart",
+    "chat",
+    "companyevents",
+    "equityscreener",
+    "filings",
+    "financials",
+    "help",
+    "ipo",
+    "news",
+    "optionchain",
+    "quotemonitor",
+    "timeandsales",
 ]
 
 MIDDLEWARE = [

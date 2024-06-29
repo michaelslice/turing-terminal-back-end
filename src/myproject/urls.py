@@ -21,6 +21,21 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path("api/", include('api.urls')),
-    path("test/", include('test.urls')),
+    path("api/v1/api/", include('api.urls')),
+    path("api/v1/test/", include('test.urls')),
+   
+    path("api/v1/focus", include('focus.urls')),
+    path("api/v1/chart/", include('chart.urls')),
+    path("api/v1/chat/", include('chat.urls')),
+    path("api/v1/companyevents/", include('companyevents.urls')),
+    path("api/v1/equityscreener/", include('equityscreener.urls')),
+    path("api/v1/filings/", include('filings.urls')),
+    path("api/v1/financials/", include('financials.urls')),
+    path("api/v1/help/", include('help.urls')),
+    path("api/v1/holders/", include('holders.urls')),
+    path("api/v1/ipo/", include('ipo.urls')),
+    path("api/v1/news/", include('news.urls')),
+    path("api/v1/optionchain/", include('optionchain.urls')),
+    path("api/v1/quotemonitor/", include('quotemonitor.urls')),
+    path("api/v1/timeandsales/", include('timeandsales.urls')),
 ]
