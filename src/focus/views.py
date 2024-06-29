@@ -30,9 +30,9 @@ def get_ticker(request):
             current_price = stock.history(period='1d')['Close'][0]
 
             data = {
-                "price" : current_price,
-                "price_change" : day_change,
-                "percent_change" : day_percent_change,
+                "price" : round(current_price, 2),
+                "price_change" : round(day_change, 2),
+                "percent_change" : round(day_percent_change, 2),
             }          
         return JsonResponse(data)
         
