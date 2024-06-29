@@ -7,7 +7,7 @@ from . import views
 urlpatterns = [
     path('', views.test_view, name="test"),
    
-    path('ticker/', views.get_ticker1, name="ticker"),
+    path('ticker/', views.get_ticker, name="ticker"),
    
     # yfinance test routes
 ]

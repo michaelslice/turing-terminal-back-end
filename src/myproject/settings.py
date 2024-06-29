@@ -76,6 +76,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'myproject.urls'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

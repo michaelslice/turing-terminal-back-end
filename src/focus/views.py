@@ -10,15 +10,14 @@ def test_view(request):
     return Response("THIS IS A TEST", status=status.HTTP_200_OK)
 
 
-
-#@api_view(['GET'])
-def get_ticker1(request):
-    return Response("TEST")
-
-    '''
+@api_view(['GET'])
+def get_ticker(request):
     
-    stock_ticker = request.query_params.get('symbol')
-    if stock_ticker:
+    if request.method == "GET":
+
+        stock_ticker = request.GET.get('ticker')
+        
+        if stock_ticker:
             stock = yf.Ticker(stock_ticker)
 
             stock_data = stock.history(period='1d')
@@ -34,10 +33,9 @@ def get_ticker1(request):
                 "price" : current_price,
                 "price_change" : day_change,
                 "percent_change" : day_percent_change,
-            }
-        
-            return JsonResponse(data)
+            }          
+        return JsonResponse(data)
         
     else:
         return JsonResponse({"error": 'No stock ticker provided'}, status=400)  
-    '''
+    
