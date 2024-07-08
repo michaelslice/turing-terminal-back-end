@@ -5,10 +5,6 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import yfinance as yf
 
-@api_view(['GET'])  
-def test_view(request): 
-    return Response("THIS IS A TEST", status=status.HTTP_200_OK)
-
 
 @api_view(['GET'])
 def get_ticker(request):
@@ -37,5 +33,5 @@ def get_ticker(request):
         return JsonResponse(data)
         
     else:
-        return JsonResponse({"error": 'No stock ticker provided'}, status=400)  
+        return JsonResponse({"Error": 'No Stock Ticker Provided'}, status=400)  
     
