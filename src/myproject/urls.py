@@ -38,4 +38,5 @@ urlpatterns = [
     path("api/v1/optionchain/", include('optionchain.urls')),
     path("api/v1/quotemonitor/", include('quotemonitor.urls')),
     path("api/v1/timeandsales/", include('timeandsales.urls')),
+    path("api/v1/worldindices/", include('worldindices.urls')),
 ]
