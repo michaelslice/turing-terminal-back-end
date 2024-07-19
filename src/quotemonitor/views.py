@@ -4,16 +4,19 @@ from rest_framework import generics, status
 from django.http import HttpResponse
 from django.http import JsonResponse
 import yfinance as yf
+from quotemonitor.model import Ticker
 
-def get_msft(request):
-    msft = yf.Ticker("MSFT")
-    stock_info = msft.info
-    data = {
-        'name': stock_info.get('shortName', 'N/A'),
-        'symbol': stock_info.get('symbol', 'N/A'),
-        'currentPrice': stock_info.get('regularMarketPrice', 'N/A'),
-        'marketCap': stock_info.get('marketCap', 'N/A'),
-    }
-    return JsonResponse(data)
+def upload_ticker(request):
+    
+    ticker = request.GET.get("ticker")
+    print(ticker)
+    
+    if request.method == "POST":
+        
+        #new_ticker = Ticker(symbol="AAPL", last="12", bid="12", ask="12", change_percent="12", volume="12")
+        #new_ticker.save()
+        
+        return JsonResponse({"TEST": "test"}, status=200)
 
-
+    else:
+        return JsonResponse({"Error": "Invalid Request Method"}, status=400)

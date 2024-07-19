@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import pandas as pd
+import os
+load_dotenv()
+MY_ENV_VAR = os.getenv("POSTGRES_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +46,9 @@ INSTALLED_APPS = [
     'corsheaders',
     
     # My Project folders
+    
+
+    
     "api",
     "test",
     "focus",
@@ -106,8 +114,12 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # 'django.db.backends.postgresql
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ticker_list',
+        'USER': 'postgres',
+        'PASSWORD': MY_ENV_VAR,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
