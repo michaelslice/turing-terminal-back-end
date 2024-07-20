@@ -4,16 +4,25 @@ from rest_framework import generics, status
 from django.http import HttpResponse
 from django.http import JsonResponse
 import yfinance as yf
-
-def get_msft(request):
-    msft = yf.Ticker("MSFT")
-    stock_info = msft.info
-    data = {
-        'name': stock_info.get('shortName', 'N/A'),
-        'symbol': stock_info.get('symbol', 'N/A'),
-        'currentPrice': stock_info.get('regularMarketPrice', 'N/A'),
-        'marketCap': stock_info.get('marketCap', 'N/A'),
-    }
-    return JsonResponse(data)
+import requests
+import os
+from dotenv import load_dotenv
+import pandas as pd
+load_dotenv()
+MY_ENV_VAR = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 
+def get_intraday(request):
+    if request.method == "GET":
+
+        ticker = request.GET.get("ticker")
+        
+        # url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={MY_ENV_VAR}'
+        url = 'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=IBM&apikey=demo'
+        r = requests.get(url)
+        data = r.json()
+        
+        return JsonResponse(data, safe=False, status=200)
+    
+    else:
+        return JsonResponse({"Failure": "Server Error"}, status=400)
