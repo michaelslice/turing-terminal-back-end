@@ -6,6 +6,6 @@ from . import views
 '''
 urlpatterns = [
    path('getoptionchain/', views.get_option_chain, name="getoptionchain"),
-   path('getcalls/', views.get_option_chain, name="getcalls"),
-   path('getputs/', views.get_option_chain, name="getputs"),
+   path('getcalls/', views.get_calls, name="getcalls"),
+   path('getputs/', views.get_puts, name="getputs"),
 ]

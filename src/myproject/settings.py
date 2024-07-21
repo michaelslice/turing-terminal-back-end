@@ -46,10 +46,8 @@ INSTALLED_APPS = [
     'corsheaders',
     
     # My Project folders
-    
-
-    
     "api",
+    "description",
     "test",
     "focus",
     "holders",

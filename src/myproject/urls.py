@@ -39,4 +39,5 @@ urlpatterns = [
     path("api/v1/quotemonitor/", include('quotemonitor.urls')),
     path("api/v1/timeandsales/", include('timeandsales.urls')),
     path("api/v1/worldindices/", include('worldindices.urls')),
+    path("api/v1/description/", include('description.urls')),
 ]
