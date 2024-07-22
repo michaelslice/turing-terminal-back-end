@@ -41,6 +41,24 @@ docker ps
 docker kill <CONTAINER ID>
 ```
 
+## API Endpoints
+
+- `api/v1/focus/`
+- `api/v1/chart/`
+- `api/v1/chat/`
+- `api/v1/companyevents/`
+- `api/v1/equityscreener/`
+- `api/v1/filings/`
+- `api/v1/financials/`
+- `api/v1/chat/`
+- `api/v1/holders/`
+- `api/v1/ipo/`
+- `api/v1/news/`
+- `api/v1/optionchain/`
+- `api/v1/quotemonitor/`
+- `api/v1/worldindices/`
+- `api/v1/description/`
+
 ## Technologies Used
 
 - [Python](https://docs.python.org/3/)
