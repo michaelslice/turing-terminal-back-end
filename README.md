@@ -59,6 +59,14 @@ docker kill <CONTAINER ID>
 - `api/v1/worldindices/`
 - `api/v1/description/`
 
+## Documentation
+
+- [Yahoo Finance API](https://python-yahoofinance.readthedocs.io/en/latest/index.html)
+- [Yahoo Fin API](https://theautomatic.net/yahoo_fin-documentation/)
+- [SEC Edgar Filings API](https://sec-api.io/docs)
+- [Alpha Vantage API](https://www.alphavantage.co/documentation/)
+- [Polygon.io API](https://polygon.io/docs/options/getting-started)
+
 ## Technologies Used
 
 - [Python](https://docs.python.org/3/)
