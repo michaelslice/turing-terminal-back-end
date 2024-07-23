@@ -13,7 +13,18 @@ import yahoo_fin.stock_info as si
 load_dotenv()
 MY_ENV_VAR = os.getenv("EDGAR_SEC_API_KEY")
 
+'''
 
+The function get_filings(request) is used to handle a GET request and 
+retrieve SEC filings for a specific ticker in the request header
+
+@param request: Is a HTTP object which contains data about the request
+
+@return Response: Represents a object of data that is sent back to the client
+
+@note: This function uses the SEC API, found at https://sec-api.io/docs/query-api/python-example
+
+'''
 @api_view(['GET'])
 def get_filings(request):
     if request.method == "GET":

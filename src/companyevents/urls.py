@@ -5,6 +5,5 @@ from . import views
 @note urlpatterns: Contains a list of URL pattern mappings for the Django project
 '''
 urlpatterns = [
-   path('', views.get_msft, name="test"),
-   
+   path('get_company_events/', views.get_company_events, name="get_company_events"),  
 ]

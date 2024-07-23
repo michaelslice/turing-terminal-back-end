@@ -46,9 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     
     # My Project folders
-    "api",
     "description",
-    "test",
     "focus",
     "holders",
     "chart",
@@ -62,7 +60,6 @@ INSTALLED_APPS = [
     "news",
     "optionchain",
     "quotemonitor",
-    "timeandsales",
 ]
 
 MIDDLEWARE = [

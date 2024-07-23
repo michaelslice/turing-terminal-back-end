@@ -11,7 +11,18 @@ import pandas as pd
 load_dotenv()
 MY_ENV_VAR = os.getenv("ALPHA_VANTAGE_API_KEY")
 
+'''
 
+The function get_option_chain(request) is used to handle a GET request and 
+retrieve the most recent call and put options contracts
+
+@param request: Is a HTTP object which contains data about the request
+
+@return JsonResponse: Represents a object of data that is sent back to the client
+
+@note: This function uses the Alpha Vantage API, found at https://www.alphavantage.co/documentation/
+
+'''
 @api_view(['GET'])
 def get_option_chain(request):
     
@@ -35,7 +46,18 @@ def get_option_chain(request):
     else:
         return JsonResponse({"Error": "Invalid Request Method"}, status=400)
 
+'''
 
+The function get_calls(request) is used to handle a GET request and 
+retrieve the most recent call options contracts
+
+@param request: Is a HTTP object which contains data about the request
+
+@return JsonResponse: Represents a object of data that is sent back to the client
+
+@note: This function uses the Alpha Vantage API, found at https://www.alphavantage.co/documentation/
+
+'''
 @api_view(['GET'])
 def get_calls(request):
     
@@ -62,7 +84,18 @@ def get_calls(request):
     else:
         return JsonResponse({"Error": "Invalid Request Method"}, status=400)
 
+'''
 
+The function get_puts(request) is used to handle a GET request and 
+retrieve the most recent put options contracts
+
+@param request: Is a HTTP object which contains data about the request
+
+@return JsonResponse: Represents a object of data that is sent back to the client
+
+@note: This function uses the Alpha Vantage API, found at https://www.alphavantage.co/documentation/
+
+'''
 @api_view(['GET'])
 def get_puts(request):
     

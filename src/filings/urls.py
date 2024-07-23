@@ -6,5 +6,4 @@ from . import views
 '''
 urlpatterns = [
    path('getfilings/', views.get_filings, name="getfilings"),
-   
 ]

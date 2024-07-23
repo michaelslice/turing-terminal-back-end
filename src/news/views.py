@@ -5,7 +5,18 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import yfinance as yf
 
+'''
 
+The function get_news(request) is used to handle a GET request and 
+retrieve the current news for a specific ticker
+
+@param request: Is a HTTP object which contains data about the request
+
+@return JsonResponse: Represents a object of data that is sent back to the client
+
+@note: This function uses the yfinance API, found at https://python-yahoofinance.readthedocs.io/en/latest/api.html
+
+'''
 @api_view(['GET'])
 def get_news(request):
     if request.method == "GET":
