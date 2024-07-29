@@ -50,7 +50,6 @@ docker kill <CONTAINER ID>
 - `api/v1/equityscreener/`
 - `api/v1/filings/`
 - `api/v1/financials/`
-- `api/v1/chat/`
 - `api/v1/holders/`
 - `api/v1/ipo/`
 - `api/v1/news/`
