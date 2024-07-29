@@ -5,5 +5,6 @@ from . import views
 @note urlpatterns: Contains a list of URL pattern mappings for the Django project
 '''
 urlpatterns = [
-   path('chat/', views.chat, name="chat"),
+   path('post_chat/', views.index, name="post_chat"),
+
 ]

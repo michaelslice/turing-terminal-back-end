@@ -16,5 +16,5 @@ COPY ./src ./
 # Expose Port 8000
 EXPOSE 8000
 
-# Run Backend Server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run Backend Server, and Websocket Server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000";"python", "socketio_server.py"]
