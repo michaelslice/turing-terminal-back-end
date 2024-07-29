@@ -4,62 +4,73 @@ from rest_framework import generics, status
 from django.http import HttpResponse
 from django.http import JsonResponse
 import yahoo_fin.stock_info as si
+import os
+from dotenv import load_dotenv
+import pandas as pd
+import yahoo_fin.stock_info as si
+load_dotenv()
+MY_ENV_VAR = os.getenv("POLYGON_API_KEY")
+import requests
 
-'''
-
-The function num_to_numeric(market_cap_str) is used to convert
-a string to a numeric value
-
-@param market_cap_str: Represents a market cap (3.14T)
-
-@return: This function will return the numeric conversion of the string
-
-@notes: Supports only millions, billions, and trillions into this conversion
-Million: 10^6(1,000,000)
-Billion: 10^9(1,000,000,000)
-Trillion: 10^12(1,000,000,000,000)
-'''
-def num_to_numeric(market_cap_str):
-    units = {'B': 10**9, 'M': 10**6, 'T': 10**12}
-    if market_cap_str[-1] in units: # Check if last character is one of the keys in units
-        return float(market_cap_str[:-1]) * units[market_cap_str[-1]]
-    return float(market_cap_str)
-            
 
 @api_view(['GET'])
 def get_screener(request):
     
     if request.method == "GET":
                
-        ticker = request.GET.get("ticker")
+        # ticker = request.GET.get("ticker")
         operand = request.GET.get("operand")
         value = request.GET.get("value")
-        tickers = si.tickers_sp500()     
+
+        if not operand and not value:
+            return JsonResponse({"Error", "Operand and Value are Required"}, status=400)
+
+        # Dictionary to map passed in operands to, a lambda expression for evaluation
+        # Can be called using valid_operations[operand](arg1, arg2)
+        valid_operations = {
+            "=": lambda x, y: x == y,
+            ">": lambda x, y: x > y, 
+            "<": lambda x, y: x < y,
+            ">=": lambda x, y: x >= y,
+            "<=": lambda x, y: x <= y,
+        }
         
-        print(ticker, operand, value)
-        
-        if ticker != None and operand == None and value == None:
-   
-            for ticker in tickers:
-                ticker_price = round(si.get_live_price(ticker), 2)
-                my_dic = {ticker: ticker_price}
-        
-        elif ticker and operand and value != None:
+        try:
+            value = float(value)
+        except Exception as e:
+            return JsonResponse({"Error": e}, status=400)
+
+        # Get S&P 500 companies
+        sp500_url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+        sp500_data = pd.read_html(sp500_url)[0]
+        ticker_list = sp500_data['Symbol'].tolist()
+        results = []
+
+        for ticker in ticker_list:
+            url = f"https://api.polygon.io/v3/reference/tickers/{ticker}?apiKey={MY_ENV_VAR}"
+            r = requests.get(url)
+            data = r.json()
             
-            for ticker in tickers:
-                ticker_price = round(si.get_live_price(ticker), 2)
-                ticker_market_cap = si.get_stats_valuation(ticker)
-                metadeta = ticker_market_cap[['Current']]
-                metadeta["Numeric"] = metadeta['Current'].apply(num_to_numeric)
+            if 'results' in data:
+                ticker_data = data['results']
+                market_cap = ticker_data.get("market_cap", None)
                 
-                if metadeta['Numeric'][0] > value:
-                
-                    my_dic = {ticker: ticker_price}
+                # valid_operations[operand](market_cap, value): 
+                # [operand]: The passed in operand from the front-end is used as the key for the dictionary
+                # (market_cap, value): Calls the lambda function with market_cap, and value as arguements for x, and y
+                if market_cap is not None and valid_operations[operand](market_cap, value):
+                    row = {
+                        "ticker": ticker_data.get("ticker", None),
+                        "name": ticker_data.get("name", None),
+                        "market_cap": round(ticker_data.get("market_cap", None), 2)
+                    }
         
-        
-        return JsonResponse(my_dic(orient="records"), safe=False, status=200)
-    
-        # return JsonResponse(my_dic(orient="records"), safe=False, status=200)
+                    print(row)      
+                    results.append(row)
+                    
+        results = pd.DataFrame(results)
+
+        return JsonResponse(results.to_dict(orient="records"), safe=False, status=200)
     
     else:
         return JsonResponse({"Error": "Invalid Request Method"}, status=400)
