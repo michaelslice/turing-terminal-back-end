@@ -6,5 +6,4 @@ from . import views
 '''
 urlpatterns = [
    path('uploadticker/', views.upload_ticker, name="uploadticker"),
-   
 ]

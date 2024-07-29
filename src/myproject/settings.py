@@ -44,9 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    # "socketio_app",
-    # 'channels',
-    # 'djangochannels_socketio',
     
     # My Project folders
     "description",
@@ -58,7 +55,6 @@ INSTALLED_APPS = [
     "equityscreener",
     "filings",
     "financials",
-    "help",
     "ipo",
     "news",
     "optionchain",

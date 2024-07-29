@@ -6,5 +6,4 @@ from . import views
 '''
 urlpatterns = [
    path('post_chat/', views.index, name="post_chat"),
-
 ]

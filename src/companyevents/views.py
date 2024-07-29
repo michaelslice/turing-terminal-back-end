@@ -15,8 +15,6 @@ MY_ENV_VAR = os.getenv("EDGAR_SEC_API_KEY")
 
 '''
 
-
-
 https://sec-api.io/docs/form-8k-data-search-api#request-parameters
 
 '''
@@ -28,13 +26,12 @@ def get_company_events(request):
 
         queryApi = QueryApi(api_key=MY_ENV_VAR)
         query = {
-        "query": f'ticker:{ticker}',
-        "from": "0",
-        "size": "50"
+            "query": f'ticker:{ticker}',
+            "from": "0",
+            "size": "50"
         }
 
         response = queryApi.get_filings(query)
-
         metadata = pd.DataFrame.from_records(response['filings'])
 
         metadata = metadata[[
