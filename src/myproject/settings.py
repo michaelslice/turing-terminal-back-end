@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     
     # My Project folders
+    "userbiography",
     "description",
     "focus",
     "holders",
@@ -111,7 +112,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ticker_list',
+        'NAME': 'turing-terminal',
         'USER': 'postgres',
         'PASSWORD': MY_ENV_VAR,
         'HOST': 'localhost',

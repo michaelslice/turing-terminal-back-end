@@ -28,6 +28,7 @@ urlpatterns = [
     path("api/v1/equityscreener/", include('equityscreener.urls')),
     path("api/v1/filings/", include('filings.urls')),
     path("api/v1/financials/", include('financials.urls')),
+    path("api/v1/userbiography/", include('userbiography.urls')),
     path("api/v1/holders/", include('holders.urls')),
     path("api/v1/ipo/", include('ipo.urls')),
     path("api/v1/news/", include('news.urls')),
