@@ -12,7 +12,6 @@ load_dotenv()
 MY_ENV_VAR = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 '''
-
 The function get_balance_sheet(request) is used to handle a GET request and 
 retrieve the balance sheet for a specific ticker in the request header
 
@@ -21,7 +20,6 @@ retrieve the balance sheet for a specific ticker in the request header
 @return JsonResponse: Represents a object of data that is sent back to the client
 
 @note: This function uses the Alpha Vantage API, found at https://www.alphavantage.co/documentation/
-
 '''
 @api_view(['GET'])
 def get_balance_sheet(request):

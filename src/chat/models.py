@@ -1,15 +1,17 @@
 from django.db import models
-from userbiography.model import UserBio
+from userbiography.model import UserAccount
 
 # Create your models here.
 '''
-Relationship: Linked to UserBio through a foriegn,
-so each message is associated with a specific user
+Relationship: Linked to UserAccount through a foriegn,
+so each chat message is associated with a UserAccount
 
-Relevant Sources: https://docs.djangoproject.com/en/5.0/topics/db/models/#automatic-primary-key-fields
+@Note: Foreign key to UserAccount
+
+@Relevant Sources: https://docs.djangoproject.com/en/5.0/topics/db/models/#automatic-primary-key-fields
 '''
 class Chats(models.Model):
-    user = models.ForeignKey(UserBio, on_delete=models.CASCADE) # Foreign key to UserBio, to link each unique user
+    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE) # Foreign key to UserAccount, to link each unique user
     message = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
     

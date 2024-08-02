@@ -13,7 +13,6 @@ load_dotenv()
 MY_ENV_VAR = os.getenv("POLYGON_API_KEY")
 
 '''
-
 The function get_description(request) is used to handle a GET request
 and retrive financial data for a tickers description, phone number,
 address, city, state, zipcode, current price, and market cap
@@ -24,7 +23,6 @@ address, city, state, zipcode, current price, and market cap
 
 @note: This function uses the Polygon API for (Ticker Details v3) found at https://polygon.io/docs/stocks/get_v3_reference_tickers__ticker
 ,also the yahoo_fin API is used for the market cap, documentation found at https://theautomatic.net/yahoo_fin-documentation/ 
-
 '''
 @api_view(['GET'])
 def get_description(request):

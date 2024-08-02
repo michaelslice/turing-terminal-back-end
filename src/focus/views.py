@@ -6,7 +6,6 @@ from django.http import JsonResponse
 import yfinance as yf
 
 '''
-
 The function get_ticker(request) is used to handle a GET request and 
 retrieve the current price, day price change, and day percent change
 
@@ -15,7 +14,6 @@ retrieve the current price, day price change, and day percent change
 @return JsonResponse: Represents a object of data that is sent back to the client
 
 @note: This function uses the yfinance API, found at https://python-yahoofinance.readthedocs.io/en/latest/api.html
-
 '''
 @api_view(['GET'])
 def get_ticker(request):

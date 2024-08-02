@@ -13,7 +13,6 @@ load_dotenv()
 MY_ENV_VAR = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 '''
-
 The function upload_ticker(request) is used to 
 
 @param request: Is a HTTP object which contains data about the request
@@ -21,7 +20,6 @@ The function upload_ticker(request) is used to
 @return JsonResponse: Represents a object of data that is sent back to the client
 
 @note: This function uses the Alpha Vantage API, found at https://www.alphavantage.co/documentation/
-
 '''
 # def upload_ticker(request):
     

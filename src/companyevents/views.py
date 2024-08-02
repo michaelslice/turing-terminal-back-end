@@ -14,9 +14,7 @@ load_dotenv()
 MY_ENV_VAR = os.getenv("EDGAR_SEC_API_KEY")
 
 '''
-
 https://sec-api.io/docs/form-8k-data-search-api#request-parameters
-
 '''
 def get_company_events(request):
 

@@ -13,14 +13,12 @@ load_dotenv()
 MY_ENV_VAR = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 '''
-
 The function get_world_indices(request) is used to handle a GET request
 and retrive the most recent financial data for the world indices
 
 @param request: Is a HTTP object which contains data about the request
 
 @return JsonResponse: Represents a object of data that is sent back to the client
-
 '''
 @api_view(['GET'])
 def get_world_indices(request):
