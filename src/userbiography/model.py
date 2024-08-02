@@ -17,8 +17,12 @@ CREATE TABLE UserBio(
 
 '''
 class UserBio(models.Model):
+    user_id = models.ForeignKey(unique=True) 
     user_email = models.CharField(max_length=50)
     user_name = models.CharField(max_length=30)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     company = models.CharField(max_length=30)
+    
+    def __str__(self) -> str:
+        return self.user_name
