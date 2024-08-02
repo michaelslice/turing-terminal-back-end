@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     "focus",
     "holders",
     "chart",
-    "chat",
+    "message",
     "companyevents",
     "equityscreener",
     "filings",

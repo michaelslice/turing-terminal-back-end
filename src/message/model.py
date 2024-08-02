@@ -12,5 +12,9 @@ class Messages(models.Model):
     message = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
     
+    # class Meta:
+    #     app_lablel = "chat"
+    #     db_table = "chat"
+    
     def __str__(self) -> str:
         return f"Message from {self.user.user_name} at {self.time}"

@@ -9,13 +9,13 @@ Relevant Sources: https://docs.djangoproject.com/en/5.0/topics/db/models/#automa
 '''
 class Ticker(models.Model):
     user = models.ForeignKey(UserBio, on_delete=models.CASCADE) # Foreign key to UserBio, to link each unique user
-    symbol = models.CharField(max_length=4, unique=True) # Prevent users from storing duplicate tickers
-    last = models.DecimalField(decimal_places=2)
-    open = models.DecimalField(decimal_places=2)
-    high = models.DecimalField(decimal_places=2)
-    low = models.DecimalField(decimal_places=2)
-    change_percent = models.DecimalField(decimal_places=2)
-    volume = models.DecimalField(decimal_places=1)
+    symbol = models.CharField(max_length=4, null=False)
+    last = models.DecimalField(max_digits=10, decimal_places=2) 
+    open = models.DecimalField(max_digits=10, decimal_places=2) 
+    high = models.DecimalField(max_digits=10, decimal_places=2) 
+    low = models.DecimalField(max_digits=10, decimal_places=2) 
+    change_percent = models.DecimalField(max_digits=10, decimal_places=2) 
+    volume = models.DecimalField(max_digits=20, decimal_places=1) 
     
     def __str__(self) -> str:
         return self.symbol

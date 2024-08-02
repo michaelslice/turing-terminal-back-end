@@ -23,7 +23,7 @@ urlpatterns = [
    
     path("api/v1/focus/", include('focus.urls')),
     path("api/v1/chart/", include('chart.urls')),
-    path("api/v1/chat/", include('chat.urls')),
+    path("api/v1/message/", include('message.urls')),
     path("api/v1/companyevents/", include('companyevents.urls')),
     path("api/v1/equityscreener/", include('equityscreener.urls')),
     path("api/v1/filings/", include('filings.urls')),
