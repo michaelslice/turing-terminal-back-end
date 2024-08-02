@@ -39,7 +39,9 @@ def post_user_bio(request):
         try:
             # Check if user with the given email exists, if not create it 
             user, created = User.objects.get_or_create(
+                # Set the email that should be searched for in the User instance 
                 email=user_email,
+                # Create or, update these fields
                 defaults={
                     'username': user_name,
                     'first_name': first_name,
@@ -49,7 +51,9 @@ def post_user_bio(request):
             
             # Create or update the UserAccount
             UserAccount.objects.update_or_create(
+                # Search for a user, matching in the User instance
                 user=user,
+                # Create or, update these fields
                 defaults={
                     'user_email': user_email, 
                     'user_name': user_name,

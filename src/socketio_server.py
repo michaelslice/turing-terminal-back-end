@@ -17,9 +17,11 @@ def connect(sid, environ):
 def disconnect(sid):
     print('Client disconnected:', sid)
 
+# Post comment
 @sio.on('chat message')
 def handle_message(sid, msg):
     print('Message from {}: {}'.format(sid, msg))
+    
     sio.emit('chat message', msg)
 
 if __name__ == '__main__':

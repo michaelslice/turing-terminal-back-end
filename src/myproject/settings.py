@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # My Project folders
     "userbiography",
     "description",
+    "accountmanagement",
     "focus",
     "holders",
     "chart",
