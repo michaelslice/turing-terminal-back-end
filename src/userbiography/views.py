@@ -6,10 +6,9 @@ from django.http import JsonResponse
 from userbiography.model import UserBio
 import requests
 import pandas as pd
-
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
 
 @api_view(["POST"])
 def post_user_bio(request):
