@@ -6,4 +6,7 @@ from . import views
 '''
 urlpatterns = [
    path('uploadticker/', views.upload_ticker, name="uploadticker"),
+   path('gettickers/', views.get_tickers, name="gettickers"),
+   path('deleteticker/', views.delete_ticker, name="deleteticker"),
+   
 ]
