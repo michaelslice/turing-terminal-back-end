@@ -12,7 +12,7 @@ so each chat message is associated with a UserAccount
 '''
 class Chats(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE) # Foreign key to UserAccount, to link each unique user
-    message = models.TextField()
+    message = models.TextField(max_length=100)
     time = models.DateTimeField(auto_now_add=True)
     
     def __str__(self) -> str:
