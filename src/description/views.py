@@ -31,13 +31,13 @@ def get_description(request):
 
         ticker = request.GET.get("ticker")
 
-        ticker = yf.Ticker(ticker)
+        ticker = yf.Ticker(str(ticker))
         current_price = ticker.history(period='1d')['Close'][0]
 
-        market_data = si.get_stats_valuation(ticker)
+        market_data = si.get_stats_valuation(str(ticker))
         market_cap = market_data['Current'][0]
 
-        url = f'https://api.polygon.io/v3/reference/tickers/{ticker}?apiKey={MY_ENV_VAR}'
+        url = f'https://api.polygon.io/v3/reference/tickers/{str(ticker)}?apiKey={MY_ENV_VAR}'
         r = requests.get(url)
         data = r.json()
         
