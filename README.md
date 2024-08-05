@@ -45,7 +45,7 @@ docker kill <CONTAINER ID>
 
 - `api/v1/focus/`
 - `api/v1/chart/`
-- `api/v1/chat/`
+- `api/v1/message/`
 - `api/v1/companyevents/`
 - `api/v1/equityscreener/`
 - `api/v1/filings/`
