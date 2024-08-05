@@ -28,12 +28,7 @@ def get_option_chain(request):
 
         ticker = request.GET.get("ticker")
 
-        # url = f'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={ticker}&apikey={MY_ENV_VAR}'
-
-        # r = requests.get(url)
-        # data = r.json()        
-        # data = pd.DataFrame(data['data'])
-        url = 'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol=IBM&apikey=demo'
+        url = f'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={ticker}&apikey={MY_ENV_VAR}'
         r = requests.get(url)
         data = r.json()
         data = pd.DataFrame(data['data'])
@@ -63,14 +58,7 @@ def get_calls(request):
 
         ticker = request.GET.get("ticker")
 
-        # url = f'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={ticker}&apikey={MY_ENV_VAR}'
-
-        # r = requests.get(url)
-        # data = r.json()        
-        # data = pd.DataFrame(data['data'])
-        # data.drop(data.loc[data['type']=='put'].index, inplace=True) # Remove all put options from data
-        
-        url = 'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol=IBM&apikey=demo'
+        url = f'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={ticker}&apikey={MY_ENV_VAR}'
         r = requests.get(url)
         data = r.json()
         data = pd.DataFrame(data['data'])
@@ -101,14 +89,7 @@ def get_puts(request):
 
         ticker = request.GET.get("ticker")
 
-        # url = f'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={ticker}&apikey={MY_ENV_VAR}'    
-
-        # r = requests.get(url)
-        # data = r.json()        
-        # data = pd.DataFrame(data['data'])
-        # data.drop(data.loc[data['type']=='call'].index, inplace=True) # Remove all call options from data
-        
-        url = 'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol=IBM&apikey=demo'
+        url = f'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={ticker}&apikey={MY_ENV_VAR}'    
         r = requests.get(url)
         data = r.json()
         data = pd.DataFrame(data['data'])

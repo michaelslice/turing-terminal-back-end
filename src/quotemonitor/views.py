@@ -33,8 +33,7 @@ def upload_ticker(request):
         ticker = request.GET.get("ticker")
         email = request.GET.get("userEmail")
         
-        url = 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo'
-        # url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={MY_ENV_VAR}'
+        url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={MY_ENV_VAR}'
         r = requests.get(url)
         data = r.json()
         data = pd.DataFrame(data)

@@ -11,6 +11,7 @@ import pandas as pd
 load_dotenv()
 MY_ENV_VAR = os.getenv("ALPHA_VANTAGE_API_KEY")
 
+
 '''
 The function get_intraday(request) is used to handle a GET request and 
 retrieve intraday sales data for a specific ticker
@@ -26,8 +27,7 @@ def get_intraday(request):
 
         ticker = request.GET.get("ticker")
         
-        # url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={MY_ENV_VAR}'
-        url = 'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=IBM&apikey=demo'
+        url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={MY_ENV_VAR}'
         r = requests.get(url)
         data = r.json()
         
