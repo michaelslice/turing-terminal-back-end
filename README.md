@@ -9,9 +9,9 @@ Turing-Terminal is a web-based financial terminal developed using React, TypeScr
 ## Prerequisites
 
 - Node.js: Ensure node.js is installed on your machine. [Download  here](https://nodejs.org/en/download/prebuilt-installer/current)
-- A PostgreSQL account: This project used PostgreSQL for database management. An acccount can be through Postgres after downloading [here](https://www.postgresql.org/download/)
+- A PostgreSQL account: This project used PostgreSQL for database management. An account can be through Postgres after downloading [here](https://www.postgresql.org/download/)
 - Firebase Account: Firebase Authentication is used for authentication in this project. This can be done [here](https://firebase.google.com/)
-- Docker Account: This project's frontend and backend is both containerized using Docker. Setup [here](https://www.docker.com/products/docker-desktop/)
+- Docker Account: This project's frontend and backend are containerized using Docker. Setup [here](https://www.docker.com/products/docker-desktop/)
 
 ## Installation & Setup
 
@@ -24,7 +24,7 @@ cd turing-terminal-back-end/src
    The environment variables need to be set up next. Follow these steps: <br> 
    - In the directory ```venv/turing-terminal-back-end/```
    - Access the ```.env``` file in your text editor.
-   - Append the following lines the file: <br>
+   - Append the following lines to the file: <br>
    ```
    ALPHA_VANTAGE_API_KEY=<Your Alpha Vantage API key>
    POSTGRES_KEY=<Your PostgreSQL database password>
@@ -32,10 +32,10 @@ cd turing-terminal-back-end/src
    POLYGON_API_KEY=<Your Polygon API key>
    ```
    - Replace the placeholders with your actual values. Here's how you can obtain each of these:
-     - ALPHA_VANTAGE_API_KEY: A API key can be obtained [here](https://www.alphavantage.co/support/#api-key)
+     - ALPHA_VANTAGE_API_KEY: An API key can be obtained [here](https://www.alphavantage.co/support/#api-key)
      - POSTGRES_KEY: After downloading PostgreSQL, create a database called ```turing-terminal```, and after doing so you will be prompted for a database password. For this to work ensure to replace ```<Your PostgreSQL database password>``` with your database password
-     - EDGAR_SEC_API_KEY: A API key can be obtained [here](https://sec-api.io/signup/free)
-     - POLYGON_API_KEY: A API key can be obtained [here](https://polygon.io/)
+     - EDGAR_SEC_API_KEY: An API key can be obtained [here](https://sec-api.io/signup/free)
+     - POLYGON_API_KEY: An API key can be obtained [here](https://polygon.io/)
    - After obtaining these values, replace the placeholders in ```.env``` file with the actual values and save the file.
 3. **Pull the Docker Image**
 ```
@@ -59,7 +59,7 @@ git clone git@github.com:michaelslice/turing-terminal-back-end.git
 cd turing-terminal-back-end/src
 ```
 2. **Create a Virtual Environment** <br>
-This step should not be skipped to ensure, there are no other package version conflicts with existing packages all ready downloaded on your machine. To download and create the virtual environment run the following command 
+This step should not be skipped to ensure, there are no other package version conflicts with existing packages ready downloaded on your machine. To download and create the virtual environment run the following command 
 ```
 pip install virtualenv
 ```
@@ -78,7 +78,7 @@ pip install -r requirements.txt
    The environment variables need to be set up next. Follow these steps: <br> 
    - In the directory ```venv/turing-terminal-back-end/```
    - Access the ```.env``` file in your text editor.
-   - Append the following lines the file: <br>
+   - Append the following lines to the file: <br>
    ```
    ALPHA_VANTAGE_API_KEY=<Your Alpha Vantage API key>
    POSTGRES_KEY=<Your PostgreSQL database password>
@@ -86,10 +86,10 @@ pip install -r requirements.txt
    POLYGON_API_KEY=<Your Polygon API key>
    ```
    - Replace the placeholders with your actual values. Here's how you can obtain each of these:
-     - ALPHA_VANTAGE_API_KEY: A API key can be obtained [here](https://www.alphavantage.co/support/#api-key)
+     - ALPHA_VANTAGE_API_KEY: An API key can be obtained [here](https://www.alphavantage.co/support/#api-key)
      - POSTGRES_KEY: After downloading PostgreSQL, create a database called ```turing-terminal```, and after doing so you will be prompted for a database password. For this to work ensure to replace ```<Your PostgreSQL database password>``` with your database password
-     - EDGAR_SEC_API_KEY: A API key can be obtained [here](https://sec-api.io/signup/free)
-     - POLYGON_API_KEY: A API key can be obtained [here](https://polygon.io/)
+     - EDGAR_SEC_API_KEY: An API key can be obtained [here](https://sec-api.io/signup/free)
+     - POLYGON_API_KEY: An API key can be obtained [here](https://polygon.io/)
    - After obtaining these values, replace the placeholders in ```.env``` file with the actual values and save the file.
 8. **Start Back-End**
 ```
@@ -133,7 +133,7 @@ Query Parameters: ```inequality"``` (string): The user selected inequality. ```m
 HTTP Method: GET <br>
 
 ## api/v1/filings
-Description: This endpoint retrieves the most recent SEC filings for a specified company ticker. The backend processes the request, queries the appropriate data source, and returns the latest filings information. <br>
+Description: This endpoint retrieves the most recent SEC filings for a specified company ticker. The backend processes the request, queries the appropriate data source, and returns the latest filing information. <br>
 Query Parameters: ```ticker``` (string): The ticker symbol of the company. <br>
 HTTP Method: GET <br>
 Request Example: ```curl -X GET "http://127.0.0.1:8000/api/v1/filings/getfilings/?ticker=NVDA"``` <br>
